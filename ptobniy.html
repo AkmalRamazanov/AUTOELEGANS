@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Elegans</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: moccasin;
+        }
+
+        .time {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        setInterval(updateTime, 1000);
+
+        function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            var time = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("local-time").textContent = time;
+        }
+    </script>
+</head>
+<body>
+    <h1>Auto Elegans</h1>
+    <h2>Каршеринг компания</h2>
+    <h3>Доступные автомобили в данном времени...</h3>
+    <table>
+        <tr>
+            <th>Ford</th>
+            <td> CAmaro</td>
+        </tr>
+    </table>
+
+    <div class="local-time">
+        <span id="local-time"></span>
+    </div>
+</body>
+</html>

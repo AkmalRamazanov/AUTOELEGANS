@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Eleganc - каршеринг</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: moccasin;
+        }
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .car {
+            display: inline-block;
+            width: 360px;
+            height: 480px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .car img {
+            width: 240px;
+            height: 180px;
+            margin-bottom: 20px;
+        }
+        .car p {
+            margin: 0;
+        }
+        .car button {
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .car button:hover {
+            background-color: #45a049;
+        }
+
+        .time {
+            font-size: 24px;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            margin-top: 20px;
+        }
+        
+        .search-form input[type="text"],
+        .search-form input[type="date"],
+        .search-form input[type="time"] {
+            padding: 6px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-form button {
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        setInterval(updateTime, 1000);
+
+        function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            hours = (hours < 10) ? "0" + hours : hours;
+            minutes = (minutes < 10) ? "0" + minutes : minutes;
+            seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+            var timeString = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("time").textContent = timeString;
+        }
+
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+    
+        function searchCars() {
+            var city = "Ташкент";
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+
+            // Здесь Вы можете использовать полученные значения для поиска подходящих машин
+            // и обновить информацию на странице
+
+            // Пример обработки значения даты и времени:
+            console.log("Город получения машины: " + city);
+            console.log("Дата: " + date);
+            console.log("Время: " + time);
+        }
+
+        function reserveCar(model, year, color) {
+            // Открывает новое окно или модальное окно с формой для бронирования автомобиля
+            var reservationWindow = window.open("", "_blank", "width=400,height=400");
+            reservationWindow.document.write("<h2>Бронирование автомобиля:</h2>");
+            reservationWindow.document.write("<p>Модель: " + model + "</p>");
+            reservationWindow.document.write("<p>Год выпуска: " + year + "</p>");
+            reservationWindow.document.write("<p>Цвет: " + color + "</p>");
+            reservationWindow.document.write("<form>");
+            reservationWindow.document.write("<label for='passport'>Серия паспорта:</label>");
+            reservationWindow.document.write("<input type='text' id='passport' name='passport' required><br>");
+            reservationWindow.document.write("<label for='driverLicense'>Водительское удостоверение:</label>");
+            reservationWindow.document.write("<input type='text' id='driverLicense' name='driverLicense' required><br>");
+            reservationWindow.document.write("<label for='contactNumber'>Контактный номер телефона:</label>");
+
+            reservationWindow.document.write("<input type='tel' id='contactNumber' name='contactNumber' required><br>");
+            reservationWindow.document.write("<input type='submit' value='Отправить'>");
+            reservationWindow.document.write("</form>");
+        }
+    </script>
+</head>
+<body>
+    <h1>Auto Eleganc</h1>
+    <h2>Каршеринг Компания</h2>
+    <h2>Информация о каршеринге</h2>
+    <p>Auto Elegans предоставляет услуги каршеринга, которые позволяют арендовать автомобиль на несколько часов или дней. Мы предлагаем различные модели автомобилей для удовлетворения потребностей наших клиентов.</p>
+    <h3>Выберите подходящую машину !</h3>
+
+    <div class="car">
+        <img src="https://i.cenyavto.com/2023/10/A8ry.jpg" alt="Car 1">
+        <div>
+            <p>KIA: K8</p>
+            <p>Цвет: Чёрный</p>
+            <p>Год выпуска: 2022</p>
+            <p>Вместимость: 5 человек</p>
+            <p>Общий вес: 1500 кг</p>
+            <p>Цена за час: $20</p>
+            <p>Контактный номер: +998994076209</p>
+        </div>
+        <button>Арендовать</button>
+    </div>
+
+    <div class="car">
+        <img src="https://www.hdcarwallpapers.com/thumbs/2017/2017_hyundai_new_generation_i30_2-t1.jpg" alt="Car 2">
+        <div>
+            <p>Hyundai: i30 </p>
+            <p>Цвет: Синий</p>
+            <p>Год выпуска: 2019</p>
+            <p>Вместимость: 5 человека</p>
+            <p>Общий вес: 1200 кг</p>
+            <p>Цена за час: $15</p>
+            <p>Контактный номер: +998994076209</p>
+        </div>
+        <button>Арендовать</button>
+    </div>
+
+    <div class="car">
+        <img src="https://avatars.mds.yandex.net/i?id=e04cbcd7dc8fa3f86ccdd20c72333190f6698f03-10700817-images-thumbs&n=13" alt="Car 3">
+        <div>
+            <p>Chevrolet: Tahoe</p>
+            <p>Цвет: Черный</p>
+            <p>Год выпуска: 2020</p>
+            <p>Вместимость: 6 человека</p>
+            <p>Общий вес: 1500 кг</p>
+            <p>Цена за час: $18</p>
+            <p>Контактный номер: +998994076209</p>
+        </div>
+        <button>Арендовать</button>
+    </div>
+
+    <div class="car">
+        <img src="https://avatars.mds.yandex.net/i?id=f25a1407dd3c0c35e1516b08a2677fc2cb6220f7-9985849-images-thumbs&n=13" alt="Car 4">
+        <div>
+            <p>Chevrolet: Cobalt</p>
+            <p>Цвет: Белый</p>
+            <p>Год выпуска: 2019</p>
+            <p>Вместимость: 4 человека</p>
+            <p>Общий вес: 1200 кг</p>
+            <p>Цена за час: $10</p>
+            <p>Контактный номер: +998994076209</p>
+        </div>
+        <button>Арендовать</button>
+    </div>
+
+    <div class="car">
+        <img src="https://avatars.mds.yandex.net/i?id=b42930a549e7476604a3acf3a154e305a2a6d2f7-10889692-images-thumbs&n=13" alt="Car 5">
+        <div>
+            <p>Mercedec Bens: CLS 63 AMG</p>
+            <p>Цвет: Черный</p>
+            <p>Год выпуска: 2010</p>
+            <p>Вместимость: 4 человека</p>
+            <p>Общий вес: 1200 кг</p>
+            <p>Цена за час: $15</p>
+            <p>Контактный номер: +998994076209</p>
+        </div>
+        <button>Арендовать</button>
+    </div>
+
+    <div class="time">
+        <span id="time"></span>
+    </div>
+
+    <h2>Поиск свободных машин</h2>
+    <form>
+        <label for="city">Город:</label>
+        <select id="city" name="city">
+            <option value="" disabled selected>Выберите город</option>
+            <option value="Asia/Tashkent">Ташкент</option>
+            <option value="Asia/Samarkand">Самарканд</option>
+            <option value="Asia/Bukhara">Бухара</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+            <option value="Asia/Andijan">Андижан</option>
+        </select>
+        
+        
+
+    <div class="search-form">
+                <br>
+                <label for="date">Дата:</label>
+                <input type="date" id="date">
+                <label for="time">Время:</label>
+                <input type="time" id="time">
+                <br>
+                <button onclick="searchCars()"> Найти машину </button>
+    </div>     
+</body>
+</html>

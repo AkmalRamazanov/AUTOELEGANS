@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto Eleganc - каршеринг</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .car {
+            display: inline-block;
+            width: 300px;
+            height: 370px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .car img {
+            width: 240px;
+            height: 180px;
+            margin-bottom: 10px;
+        }
+        .car p {
+            margin: 0;
+        }
+        .car button {
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .car button:hover {
+            background-color: #45a049;
+        }
+
+        .time {
+            font-size: 24px;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            margin-top: 20px;
+        }
+
+        .search-form input[type="text"],
+        .search-form input[type="date"],
+        .search-form input[type="time"] {
+            padding: 6px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .search-form button {
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function searchCars() {
+            var city = document.getElementById("city").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+
+            // Здесь Вы можете использовать полученные значения для поиска подходящих машин
+            // и обновить информацию на странице
+
+            // Пример получения данных для вывода вариантов автомобилей
+            var carOptions = [
+                {
+                    image: "car1.jpg",
+                    name: "Модель 1",
+                    color: "Синий",
+                    year: 2018,
+                    capacity: 5,
+                    weight: 1500,
+                    price: 10,
+                    contact: "123-456-789"
+                },
+                {
+                    image: "car2.jpg",
+                    name: "Модель 2",
+                    color: "Красный",
+                    year: 2019,
+                    capacity: 4,
+                    weight: 1200,
+                    price: 12,
+                    contact: "987-654-321"
+                }
+            ];
+
+            // Очистить предыдущие результаты поиска
+            var carList = document.getElementById("car-list");
+            carList.innerHTML = "";
+
+            // Вывести варианты автомобилей
+            carOptions.forEach(function(car) {
+var carItem = document.createElement("div");
+                carItem.className = "car";
+
+                var carImage = document.createElement("img");
+                carImage.src = car.image;
+                carItem.appendChild(carImage);
+
+                var carInfo = document.createElement("div");
+                var carName = document.createElement("p");
+                carName.textContent = "Название: " + car.name;
+                carInfo.appendChild(carName);
+                // Добавить остальные свойства машины
+
+                var bookButton = document.createElement("button");
+                bookButton.textContent = "Забронировать";
+                carInfo.appendChild(bookButton);
+
+                carItem.appendChild(carInfo);
+
+                carList.appendChild(carItem);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Auto Eleganc</h1>
+    <h2>Каршеринг</h2>
+
+    <h3>Доступные автомобили в данном времени</h3>
+
+    <div class="car-list">
+        <label for="carImage"></label>
+        <label type="text"></label>
+
+    </div>
+    
+    <h3>Выберите подходящую машину</h3>
+    
+
+    <div class="search-form">
+        <label for="city">Город получения машины:</label>
+        <input type="text" id="city" value="Ташкент" readonly>
+        <br>
+        <label for="date">Дата:</label>
+        <input type="date" id="date">
+        <label for="time">Время:</label>
+        <input type="time" id="time">
+        <br>
+        <button onclick="searchCars()">Найти машину</button>
+    </div>
+
+    <div id="car-list" class="car-list">
+        <!-- Варианты автомобилей будут добавлены сюда -->
+    </div>
+
+</body>
+</html>
